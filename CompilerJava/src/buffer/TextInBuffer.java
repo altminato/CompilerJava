@@ -5,6 +5,7 @@
  */
 package buffer;
 
+import error.AbortCodes;
 import java.io.*;
 /**
  *
@@ -21,13 +22,13 @@ public abstract class TextInBuffer {
     protected String currentLine=null;
     protected char currentChar;
     
-    public TextInBuffer(String filename){
+    public TextInBuffer(String filename, AbortCodes.AbortCode abortCode){
         this.filename=filename;
         try{
             fileReader=new FileReader(this.filename);
             bufferedReader=new BufferedReader(fileReader);
         }catch(Exception ex){
-            System.out.println("Error opening file "+ex.getMessage());
+            AbortCodes.abortTranslation(abortCode);
         }
     }
     public abstract String getLine();

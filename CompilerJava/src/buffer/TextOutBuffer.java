@@ -11,8 +11,15 @@ package buffer;
  */
 public abstract class TextOutBuffer {
     protected String filename;
-    
+    protected String currentText;
     public TextOutBuffer(String filename){
         this.filename=filename;
+    }
+    
+    public abstract void putLine();
+    
+    protected void putLine(String line){
+        currentText=line;
+        putLine();
     }
 }

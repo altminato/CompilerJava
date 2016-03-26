@@ -5,6 +5,7 @@
  */
 package buffer;
 
+import error.AbortCodes;
 import java.io.IOException;
 
 /**
@@ -14,7 +15,7 @@ import java.io.IOException;
 public class TSourceBuffer extends TextInBuffer{
     private String line;
     public TSourceBuffer(String filename){
-        super(filename);
+        super(filename, AbortCodes.AbortCode.ABORT_FORM_FILE_OPEN_FAILED);
     }
     
     @Override
