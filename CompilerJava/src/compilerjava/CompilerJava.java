@@ -21,7 +21,12 @@ public class CompilerJava {
         System.out.println("Java Pascal Compiler");
         String inputFile="test.txt";
         System.out.println("Reading input file");
-        TextInBuffer buffer=new TextInBuffer(inputFile);
+        TSourceBuffer buffer=new TSourceBuffer(inputFile);
+        char line;
+        while((line=buffer.getChar())!= TextInBuffer.END_OF_FILE){
+            System.out.println("*"+line+"*");
+            
+        }
         
     }
     
