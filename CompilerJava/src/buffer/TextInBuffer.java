@@ -9,6 +9,6 @@ package buffer;
  *
  * @author Antonio
  */
-public class Buffer {
+public class TextInBuffer {
     
 }
