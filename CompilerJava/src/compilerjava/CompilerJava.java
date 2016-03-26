@@ -5,6 +5,8 @@
  */
 package compilerjava;
 
+import buffer.*;
+
 /**
  *
  * @author Antonio
@@ -17,6 +19,10 @@ public class CompilerJava {
     public static void main(String[] args) {
         // TODO code application logic here
         System.out.println("Java Pascal Compiler");
+        String inputFile="test.txt";
+        System.out.println("Reading input file");
+        TextInBuffer buffer=new TextInBuffer(inputFile);
+        
     }
     
 }
