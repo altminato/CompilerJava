@@ -32,6 +32,10 @@ public abstract class TextInBuffer {
     }
     public abstract String getLine();
     
+    public char getCurrentChar(){
+        return currentChar;
+    }
+    
     public char getChar(){
         if((currentLine==null) || (currentLinePosition >= currentLine.length())){
             currentLine=getLine();
@@ -43,6 +47,12 @@ public abstract class TextInBuffer {
         }
         currentChar=currentLine.charAt(currentLinePosition);
         currentLinePosition++;
+        return currentChar;
+    }
+    
+    public char putBackChar(){
+        currentLinePosition--;
+        currentChar=currentLine.charAt(currentLinePosition);
         return currentChar;
     }
 }

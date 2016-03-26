@@ -23,6 +23,7 @@ public class TSourceBuffer extends TextInBuffer{
             line=bufferedReader.readLine();
         }catch(IOException ex){
             System.out.println("Error getting line: "+ex.getMessage());
+            line = null;
         }
         
         //returning null will mean the end of the file.
