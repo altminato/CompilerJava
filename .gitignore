@@ -1,0 +1,4 @@
+CompilerJava/build/*
+CompilerJava/nbproject/*
+CompilerJava/build.xml
+CompilerJava/manifest.mf
