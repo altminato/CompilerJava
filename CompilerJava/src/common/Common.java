@@ -12,7 +12,8 @@ import misc.Codes.CharCode;
  * @author Antonio
  */
 public final class Common {
-    public static final char END_OF_FILE='\0';
+    public static final char END_OF_FILE='\b';
+    public static final char START_OF_FILE='\f';
     
     static int currentLineNumber;
     static int currentNestingLevel;

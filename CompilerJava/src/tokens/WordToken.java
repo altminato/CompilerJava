@@ -22,10 +22,10 @@ public class WordToken extends Token {
     public void getToken(TextInBuffer buffer){
         char character=buffer.getCurrentChar();
         String temporalWord="";
-        temporalWord+=character;
+        
         do{
-            character=buffer.getCurrentChar();
             temporalWord+=character;
+            character=buffer.getChar();
         }while((Common.charCodeMap[character]) == Codes.CharCode.LETTER
                 || (Common.charCodeMap[character]) == Codes.CharCode.DIGIT);
         

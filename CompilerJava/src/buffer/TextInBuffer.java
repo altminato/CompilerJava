@@ -19,7 +19,7 @@ public abstract class TextInBuffer {
     protected BufferedReader bufferedReader;
     protected int currentLinePosition;
     protected String currentLine=null;
-    protected char currentChar;
+    protected char currentChar=Common.START_OF_FILE;
     
     public TextInBuffer(String filename, AbortCodes.AbortCode abortCode){
         this.filename=filename;
@@ -43,6 +43,7 @@ public abstract class TextInBuffer {
         }
         //If we get a null line, the it is the end of the file.
         if(currentLine==null){
+            currentChar=Common.END_OF_FILE;
             return Common.END_OF_FILE;
         }
         currentChar=currentLine.charAt(currentLinePosition);

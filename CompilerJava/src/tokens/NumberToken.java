@@ -23,15 +23,14 @@ public class NumberToken extends Token{
     public void getToken(TextInBuffer buffer){
         int maxDigitCount=4;
         char character=buffer.getCurrentChar();
-        String temporalNumber=character+"";
-        int digitCount=1;
+        int digitCount=0;
+        String temporalNumber="";
         boolean countErrorFlag=false;
         value.setInteger(0);
         
         do{
-            if(digitCount<=maxDigitCount){
-                temporalNumber+=character;
-            }else{
+            temporalNumber+=character;
+            if(++digitCount>maxDigitCount){
                 countErrorFlag=true;
             }
             character=buffer.getChar();
@@ -44,6 +43,8 @@ public class NumberToken extends Token{
                 countErrorFlag=false;
             }
         }
+        character=buffer.getCurrentChar();
+        string=temporalNumber;
         code=countErrorFlag? Codes.TokenCode.ERROR : Codes.TokenCode.NUMBER;
     }
     

@@ -20,8 +20,9 @@ public class SpecialToken extends Token{
     @Override
     public void getToken(TextInBuffer buffer){
         char character=buffer.getCurrentChar();
-        buffer.getChar();
+        string=character+"";
         code= (character=='.')?Codes.TokenCode.PERIOD:Codes.TokenCode.ERROR;
+        buffer.getChar();
     }
     
     @Override

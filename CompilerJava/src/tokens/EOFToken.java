@@ -6,6 +6,7 @@
 package tokens;
 
 import buffer.TextInBuffer;
+import misc.Codes;
 
 /**
  *
@@ -18,7 +19,7 @@ public class EOFToken extends Token{
     
     @Override
     public void getToken(TextInBuffer buffer){
-        
+        code= Codes.TokenCode.END_OF_FILE;
     }
     
     @Override

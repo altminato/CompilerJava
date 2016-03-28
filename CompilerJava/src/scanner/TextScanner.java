@@ -29,6 +29,8 @@ public class TextScanner extends Scanner{
         Token token;
         skipWhiteSpace();
         
+        char temp=buffer.getCurrentChar();
+        
         switch(Common.charCodeMap[buffer.getCurrentChar()]){
             case LETTER:
                 token=wordToken;
@@ -55,10 +57,13 @@ public class TextScanner extends Scanner{
     
     public void skipWhiteSpace(){
         char character=buffer.getCurrentChar();
-        
-        while(Common.charCodeMap[character]==Codes.CharCode.WHITESPACE){
+        if(character==Common.START_OF_FILE){
             character=buffer.getChar();
         }
+        while(character == ' '){
+            character=buffer.getChar();
+        }
+        char temp=buffer.getCurrentChar();
     }
     
     private void initializeCharacterCodeMap(){
@@ -93,7 +98,5 @@ public class TextScanner extends Scanner{
         Common.charCodeMap['\'']=Codes.CharCode.QUOTE;
         Common.charCodeMap[Common.END_OF_FILE]=Codes.CharCode.END_OF_FILE;
         
-        int x=4;
-        x+=7;
     }
 }

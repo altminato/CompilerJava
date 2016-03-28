@@ -20,7 +20,7 @@ public class ErrorToken extends Token {
     public void getToken(TextInBuffer buffer){
         string="";
         string+=buffer.getCurrentChar();
-        buffer.getChar();
+        //buffer.getChar();
     }
     
     @Override

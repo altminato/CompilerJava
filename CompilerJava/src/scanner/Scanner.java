@@ -19,7 +19,14 @@ public abstract class Scanner {
     protected EOFToken eofToken;
     protected ErrorToken errorToken;
     
-    public Scanner(){}
+    public Scanner(){
+        wordToken=new WordToken();
+        numberToken= new NumberToken();
+        stringToken= new StringToken();
+        specialToken=new SpecialToken();
+        eofToken=new EOFToken();
+        errorToken=new ErrorToken();
+    }
     
     public abstract Token getToken();
 }

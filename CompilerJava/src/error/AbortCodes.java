@@ -40,11 +40,11 @@ public final class AbortCodes {
       "Unimplemented feature"
     };
     
-    public void setErrorCount(int count){
+    public static void setErrorCount(int count){
         errorCount=count;
     }
     
-    public int getErrorCount(){
+    public static int getErrorCount(){
         return errorCount;
     }
     

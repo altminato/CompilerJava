@@ -7,7 +7,9 @@ package compilerjava;
 
 import buffer.*;
 import common.Common;
+import parsers.SimpleParser;
 import scanner.TextScanner;
+import tokens.Token;
 
 /**
  *
@@ -20,18 +22,27 @@ public class CompilerJava {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        
         System.out.println("Java Pascal Compiler");
         String inputFile="test.txt";
         System.out.println("Reading input file");
-        TSourceBuffer buffer=new TSourceBuffer(inputFile);
+        //Commenting initial version, just about reading the input file
+        /*TSourceBuffer buffer=new TSourceBuffer(inputFile);
         TextScanner textScanner=new TextScanner(buffer);
         
         char line;
         while((line=buffer.getChar())!= Common.END_OF_FILE){
             System.out.println("*"+line+"*");
             
-        }
+        }*/
         
+        
+        
+        TSourceBuffer buffer=new TSourceBuffer(inputFile);
+        SimpleParser parser=new SimpleParser(buffer);
+        TListBuffer listBuffer=new TListBuffer(inputFile);
+        Token.setList(listBuffer);
+        parser.parse();
     }
     
 }
