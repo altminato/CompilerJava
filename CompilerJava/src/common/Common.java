@@ -5,6 +5,8 @@
  */
 package common;
 
+import misc.Codes.CharCode;
+
 /**
  *
  * @author Antonio
@@ -28,4 +30,7 @@ public final class Common {
     public static int getCurrentNestingLevel(){
         return currentNestingLevel;
     }
+    
+    public static CharCode charCodeMap[]= new CharCode[128];
+    
 }
