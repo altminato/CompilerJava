@@ -5,10 +5,24 @@
  */
 package tokens;
 
+import buffer.TextInBuffer;
+
 /**
  *
  * @author Antonio
  */
-public class EOFToken {
+public class EOFToken extends Token{
+    public EOFToken(){
+        super();
+    }
     
+    @Override
+    public void getToken(TextInBuffer buffer){
+        
+    }
+    
+    @Override
+    public void Print(){
+        
+    }
 }

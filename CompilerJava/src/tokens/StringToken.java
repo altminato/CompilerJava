@@ -17,7 +17,7 @@ public class StringToken extends Token{
     }
     
     @Override
-    public void Get(TextInBuffer buffer){
+    public void getToken(TextInBuffer buffer){
         
     }
     

@@ -22,4 +22,8 @@ public abstract class TextOutBuffer {
         currentText=line;
         putLine();
     }
+    
+    public String getText(){
+        return currentText;
+    }
 }

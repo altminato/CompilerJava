@@ -19,17 +19,23 @@ public class WordToken extends Token {
     }
     
     @Override
-    public void Get(TextInBuffer buffer){
-        char character=buffer.getChar();
-        
+    public void getToken(TextInBuffer buffer){
+        char character=buffer.getCurrentChar();
+        String temporalWord="";
+        temporalWord+=character;
         do{
-            
-        }while((Common.charCodeMap['s']) == Codes.CharCode.LETTER
-                || (Common.charCodeMap['s']) == Codes.CharCode.DIGIT);
+            character=buffer.getCurrentChar();
+            temporalWord+=character;
+        }while((Common.charCodeMap[character]) == Codes.CharCode.LETTER
+                || (Common.charCodeMap[character]) == Codes.CharCode.DIGIT);
+        
+        string=temporalWord;
+        code=Codes.TokenCode.WORD;
     }
     
     @Override
     public void Print(){
-        
+        System.out.println(getList().getText()+"\t word: "+string);
+        getList().putLine();
     }
 }

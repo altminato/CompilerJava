@@ -6,6 +6,8 @@
 package scanner;
 
 import buffer.TextInBuffer;
+import common.Common;
+import misc.Codes;
 import tokens.Token;
 
 /**
@@ -19,16 +21,79 @@ public class TextScanner extends Scanner{
     public TextScanner(TextInBuffer buffer){
         super();
         this.buffer=buffer;
+        initializeCharacterCodeMap();
     }
     
     @Override
     public Token getToken(){
-        return null;
+        Token token;
+        skipWhiteSpace();
+        
+        switch(Common.charCodeMap[buffer.getCurrentChar()]){
+            case LETTER:
+                token=wordToken;
+                break;
+            case DIGIT:
+                token=numberToken;
+                break;
+            case QUOTE:
+                token=stringToken;
+                break;
+            case SPECIAL:
+                token=specialToken;
+                break;
+            case END_OF_FILE:
+                token=eofToken;
+                break;
+            default:
+                token=errorToken;
+                break;
+        }
+        token.getToken(buffer);
+        return token;
     }
     
     public void skipWhiteSpace(){
+        char character=buffer.getCurrentChar();
         
+        while(Common.charCodeMap[character]==Codes.CharCode.WHITESPACE){
+            character=buffer.getChar();
+        }
     }
     
-    
+    private void initializeCharacterCodeMap(){
+        int i;
+        for(i=0; i<127; ++i){
+            Common.charCodeMap[i]=Codes.CharCode.ERROR;
+        }
+        
+        for (i='a'; i<= 'z'; ++i){
+            Common.charCodeMap[i]=Codes.CharCode.LETTER;
+        }
+        
+        for (i='A'; i<= 'Z'; ++i){
+            Common.charCodeMap[i]=Codes.CharCode.LETTER;
+        }
+        
+        for (i='0'; i<= '9'; ++i){
+            Common.charCodeMap[i]=Codes.CharCode.DIGIT;
+        }
+        
+        Common.charCodeMap['+']=Common.charCodeMap['-']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['*']=Common.charCodeMap['/']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['=']=Common.charCodeMap['^']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['.']=Common.charCodeMap[',']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['<']=Common.charCodeMap['>']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['(']=Common.charCodeMap[')']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['[']=Common.charCodeMap[']']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['{']=Common.charCodeMap['}']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap[':']=Common.charCodeMap[';']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap[' ']=Common.charCodeMap['\t']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['\n']=Common.charCodeMap['\0']=Codes.CharCode.SPECIAL;
+        Common.charCodeMap['\'']=Codes.CharCode.QUOTE;
+        Common.charCodeMap[Common.END_OF_FILE]=Codes.CharCode.END_OF_FILE;
+        
+        int x=4;
+        x+=7;
+    }
 }

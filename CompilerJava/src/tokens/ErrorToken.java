@@ -5,10 +5,26 @@
  */
 package tokens;
 
+import buffer.TextInBuffer;
+
 /**
  *
  * @author Antonio
  */
-public class ErrorToken {
+public class ErrorToken extends Token {
+    public ErrorToken(){
+        super();
+    }
     
+    @Override
+    public void getToken(TextInBuffer buffer){
+        string="";
+        string+=buffer.getCurrentChar();
+        buffer.getChar();
+    }
+    
+    @Override
+    public void Print(){
+        
+    }
 }

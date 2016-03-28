@@ -5,6 +5,7 @@
  */
 package buffer;
 
+import common.Common;
 import error.AbortCodes;
 import java.io.*;
 /**
@@ -12,8 +13,6 @@ import java.io.*;
  * @author Antonio
  */
 public abstract class TextInBuffer {
-
-    public static final char END_OF_FILE='\0';
     
     protected final String filename;
     protected FileReader fileReader;
@@ -44,7 +43,7 @@ public abstract class TextInBuffer {
         }
         //If we get a null line, the it is the end of the file.
         if(currentLine==null){
-            return END_OF_FILE;
+            return Common.END_OF_FILE;
         }
         currentChar=currentLine.charAt(currentLinePosition);
         currentLinePosition++;

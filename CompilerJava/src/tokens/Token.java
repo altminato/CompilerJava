@@ -5,6 +5,7 @@
  */
 package tokens;
 
+import buffer.TListBuffer;
 import buffer.TextInBuffer;
 import misc.Codes.*;
 import misc.DataValue;
@@ -14,6 +15,8 @@ import misc.DataValue;
  * @author Antonio
  */
 public abstract class Token {
+    
+    static TListBuffer listBuffer;
     protected TokenCode code;
     protected DataType type;
     protected DataValue value;
@@ -26,7 +29,7 @@ public abstract class Token {
         string="";
     }
     
-    public TokenCode getTokenCode(){
+    public TokenCode getCode(){
         return code;
     }
     
@@ -42,7 +45,15 @@ public abstract class Token {
         return string;
     }
     
-    public abstract void Get(TextInBuffer buffer);
+    public abstract void getToken(TextInBuffer buffer);
     
     public abstract void Print();
+    
+    public static void setList(TListBuffer list){
+        listBuffer=list;
+    }
+    
+    public static TListBuffer getList(){
+        return listBuffer;
+    }
 }
