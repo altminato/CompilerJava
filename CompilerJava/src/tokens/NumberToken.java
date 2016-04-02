@@ -50,7 +50,7 @@ public class NumberToken extends Token{
     
     @Override
     public void Print(){
-        System.out.println(getList().getText()+"\t number: "+value.getInteger());
-        getList().putLine();
+        System.out.println(Common.getListBuffer().getText()+"\t number: "+value.getInteger());
+        Common.getListBuffer().putLine();
     }
 }

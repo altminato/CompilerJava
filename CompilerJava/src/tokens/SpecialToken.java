@@ -6,6 +6,7 @@
 package tokens;
 
 import buffer.TextInBuffer;
+import common.Common;
 import misc.Codes;
 
 /**
@@ -27,7 +28,7 @@ public class SpecialToken extends Token{
     
     @Override
     public void Print(){
-        System.out.println(getList().getText()+"\t special: "+string);
-        getList().putLine();
+        System.out.println(Common.getListBuffer().getText()+"\t special: "+string);
+        Common.getListBuffer().putLine();
     }
 }

@@ -17,7 +17,7 @@ public class TListBuffer extends TextOutBuffer{
     private String date;
     private int pageNumber;
     private int lineCount;
-    private boolean listFlag;
+    private boolean listFlag=true;
     
     public TListBuffer(String filename){
         super(filename);
@@ -42,14 +42,14 @@ public class TListBuffer extends TextOutBuffer{
     }
     
     public void putLine(String line, int lineNumber, int nestingLevel){
-        System.out.println(currentText + " linenumber "+lineNumber+" nestinglevel "+nestingLevel+" "+line);
+        System.out.println(lineNumber+" "+nestingLevel+": "+line);
         putLine();
     }
     
     public void printPageHeader(){
         char formFeedChar = '\f';
         
-        System.out.println(formFeedChar+"Page "+pageNumber+" "+filename+" "+ date);
+        System.out.println(formFeedChar+" Page "+pageNumber+" "+filename+" "+ date);
         lineCount=0;
     }
     

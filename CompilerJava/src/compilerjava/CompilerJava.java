@@ -6,7 +6,7 @@
 package compilerjava;
 
 import buffer.*;
-import common.Common;
+import common.*;
 import parsers.SimpleParser;
 import scanner.TextScanner;
 import tokens.Token;
@@ -41,7 +41,7 @@ public class CompilerJava {
         TSourceBuffer buffer=new TSourceBuffer(inputFile);
         SimpleParser parser=new SimpleParser(buffer);
         TListBuffer listBuffer=new TListBuffer(inputFile);
-        Token.setList(listBuffer);
+        Common.setListBuffer(listBuffer);
         parser.parse();
     }
     

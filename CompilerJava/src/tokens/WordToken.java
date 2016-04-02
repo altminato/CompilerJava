@@ -35,7 +35,7 @@ public class WordToken extends Token {
     
     @Override
     public void Print(){
-        System.out.println(getList().getText()+"\t word: "+string);
-        getList().putLine();
+        System.out.println(Common.getListBuffer().getText()+"\t word: "+string);
+        Common.getListBuffer().putLine();
     }
 }

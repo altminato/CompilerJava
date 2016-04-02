@@ -5,6 +5,7 @@
  */
 package buffer;
 
+import common.Common;
 import error.AbortCodes;
 import java.io.IOException;
 
@@ -22,6 +23,8 @@ public class TSourceBuffer extends TextInBuffer{
     public String getLine(){
         try{
             line=bufferedReader.readLine();
+            
+            
         }catch(IOException ex){
             System.out.println("Error getting line: "+ex.getMessage());
             line = null;

@@ -5,6 +5,7 @@
  */
 package common;
 
+import buffer.TListBuffer;
 import misc.Codes.CharCode;
 
 /**
@@ -17,6 +18,7 @@ public final class Common {
     
     static int currentLineNumber;
     static int currentNestingLevel;
+    static TListBuffer list=null;
     
     public static void setCurrentLineNumber(int lineNumber){
         currentLineNumber=lineNumber;
@@ -35,5 +37,13 @@ public final class Common {
     }
     
     public static CharCode charCodeMap[]= new CharCode[128];
+    
+    public static TListBuffer getListBuffer(){
+        return list;
+    }
+    
+    public static void setListBuffer(TListBuffer listBuffer){
+        list=listBuffer;
+    }
     
 }
