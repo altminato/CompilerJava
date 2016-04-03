@@ -40,10 +40,9 @@ public class NumberToken extends Token{
             try{
                 value.setInteger(Integer.parseInt(temporalNumber));
             }catch(Exception ex){
-                countErrorFlag=false;
+                countErrorFlag=true;
             }
         }
-        character=buffer.getCurrentChar();
         string=temporalNumber;
         code=countErrorFlag? Codes.TokenCode.ERROR : Codes.TokenCode.NUMBER;
     }
