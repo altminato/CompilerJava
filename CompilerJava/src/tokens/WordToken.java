@@ -17,7 +17,7 @@ public class WordToken extends Token {
     public WordToken(){
         super();
     }
-    
+
     @Override
     public void getToken(TextInBuffer buffer){
         char character=buffer.getCurrentChar();
@@ -32,10 +32,10 @@ public class WordToken extends Token {
         string=temporalWord;
         code=Codes.TokenCode.WORD;
     }
-    
+
     @Override
     public void Print(){
-        System.out.println(Common.getListBuffer().getText()+"\t word: "+string);
+        System.out.println("\t>> word:\t\t"+string);
         Common.getListBuffer().putLine();
     }
 }

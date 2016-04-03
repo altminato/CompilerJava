@@ -38,7 +38,7 @@ public class SimpleParser {
             if(tokenCode != Codes.TokenCode.ERROR){
                 token.Print();
             }else{
-                System.out.println("*** ERROR *** "+token.getString());
+                System.out.println("\t>> *** ERROR ***\t"+token.getString());
                 AbortCodes.setErrorCount(AbortCodes.getErrorCount()+1);
             }
             

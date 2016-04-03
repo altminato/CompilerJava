@@ -28,7 +28,7 @@ public class SpecialToken extends Token{
     
     @Override
     public void Print(){
-        System.out.println(Common.getListBuffer().getText()+"\t special: "+string);
+        System.out.println("\t>> special:\t\t"+string);
         Common.getListBuffer().putLine();
     }
 }

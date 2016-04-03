@@ -23,8 +23,8 @@ public class TSourceBuffer extends TextInBuffer{
     public String getLine(){
         try{
             line=bufferedReader.readLine();
-            
-            
+            if(line != null)
+                System.out.println("Getting a line");
         }catch(IOException ex){
             System.out.println("Error getting line: "+ex.getMessage());
             line = null;
