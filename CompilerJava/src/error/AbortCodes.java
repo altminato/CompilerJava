@@ -11,8 +11,6 @@ package error;
  */
 public final class AbortCodes {
     
-    static int errorCount=0;
-    
     public static enum AbortCode{
         ABORT_INVALID_COMMAND_LINE_ARGS,
         ABORT_SOURCE_FILE_OPEN_FAILED,
@@ -39,14 +37,6 @@ public final class AbortCodes {
       "Runtime error",
       "Unimplemented feature"
     };
-    
-    public static void setErrorCount(int count){
-        errorCount=count;
-    }
-    
-    public static int getErrorCount(){
-        return errorCount;
-    }
     
     public static void abortTranslation(AbortCode code){
         System.out.println("Fatal translator error: "+abortMessage[code.ordinal()]);

@@ -18,6 +18,7 @@ public final class Common {
     
     static int currentLineNumber;
     static int currentNestingLevel;
+    static int errorCount;
     static TListBuffer list=null;
     
     public static void setCurrentLineNumber(int lineNumber){
@@ -26,6 +27,26 @@ public final class Common {
     
     public static int getCurrentLineNumber(){
         return currentLineNumber;
+    }
+    
+    public static void increaseCurrentLineNumber(){
+        currentLineNumber++;
+    }
+    
+    public static void increaseCurrentLineNumber(int increase){
+        currentLineNumber+=increase;
+    }
+    
+    public static void increaseErrorCount(){
+        errorCount++;
+    }
+    
+    public static void increaseErrorCount(int increase){
+        errorCount+=increase;
+    }
+    
+    public static int getErrorCount(){
+        return errorCount;
     }
     
     public static void setCurrentNestingLevel(int nestingLevel){

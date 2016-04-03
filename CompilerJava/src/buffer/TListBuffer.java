@@ -30,7 +30,6 @@ public class TListBuffer extends TextOutBuffer{
             printPageHeader();
         }
         
-        System.out.println(currentText);
         currentText="";
         
         lineCount++;

@@ -6,6 +6,7 @@
 package parsers;
 
 import buffer.TextInBuffer;
+import common.Common;
 import error.AbortCodes;
 import misc.Codes;
 import misc.Codes.TokenCode;
@@ -39,9 +40,12 @@ public class SimpleParser {
                 token.Print();
             }else{
                 System.out.println("\t>> *** ERROR ***\t"+token.getString());
-                AbortCodes.setErrorCount(AbortCodes.getErrorCount()+1);
+                Common.increaseErrorCount();
             }
             
         }while(tokenCode != Codes.TokenCode.END_OF_FILE);
+        
+        System.out.println(Common.getCurrentLineNumber()+" source lines.");
+        System.out.println(Common.getErrorCount()+" syntax errors.");
     }
 }
