@@ -20,6 +20,8 @@ public abstract class TextInBuffer {
     protected int currentLinePosition;
     protected String currentLine=null;
     protected char currentChar=Common.START_OF_FILE;
+    private boolean pendingToPrint=false;
+    private boolean printNow=false;
     
     public TextInBuffer(String filename, AbortCodes.AbortCode abortCode){
         this.filename=filename;
@@ -37,14 +39,22 @@ public abstract class TextInBuffer {
     }
     
     public char getChar(){
+        if(printNow==false)
+            printNow=true;
         if((currentLine==null) || (currentLinePosition >= currentLine.length())){
             currentLine=getLine();
             currentLinePosition=0;
+            pendingToPrint=true;
+            printNow=false;
         }
         //If we get a null line, the it is the end of the file.
         if(currentLine==null){
             currentChar=Common.END_OF_FILE;
             return Common.END_OF_FILE;
+        }
+        if(pendingToPrint && printNow){
+            Common.getListBuffer().putLine(currentLine, Common.getCurrentLineNumber(), Common.getCurrentNestingLevel());
+            pendingToPrint=false;
         }
         currentChar=currentLine.charAt(currentLinePosition);
         currentLinePosition++;
