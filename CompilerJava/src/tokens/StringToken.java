@@ -6,6 +6,8 @@
 package tokens;
 
 import buffer.TextInBuffer;
+import misc.Codes;
+import misc.Codes.TokenCode;
 
 /**
  *
@@ -14,11 +16,17 @@ import buffer.TextInBuffer;
 public class StringToken extends Token{
     public StringToken(){
         super();
+        code=TokenCode.STRING;
     }
     
     @Override
     public void getToken(TextInBuffer buffer){
         
+    }
+    
+    @Override
+    public boolean isDelimiter(){
+        return true;
     }
     
     @Override

@@ -27,6 +27,11 @@ public class SpecialToken extends Token{
     }
     
     @Override
+    public boolean isDelimiter(){
+        return true;
+    }
+    
+    @Override
     public void Print(){
         System.out.println("\t>> special:\t\t"+string);
         Common.getListBuffer().putLine();

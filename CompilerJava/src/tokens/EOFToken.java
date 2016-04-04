@@ -7,6 +7,7 @@ package tokens;
 
 import buffer.TextInBuffer;
 import misc.Codes;
+import misc.Codes.TokenCode;
 
 /**
  *
@@ -15,11 +16,17 @@ import misc.Codes;
 public class EOFToken extends Token{
     public EOFToken(){
         super();
+        code=TokenCode.END_OF_FILE;
     }
     
     @Override
     public void getToken(TextInBuffer buffer){
         code= Codes.TokenCode.END_OF_FILE;
+    }
+    
+    @Override
+    public boolean isDelimiter(){
+        return false;
     }
     
     @Override

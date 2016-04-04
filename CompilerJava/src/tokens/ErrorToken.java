@@ -6,6 +6,7 @@
 package tokens;
 
 import buffer.TextInBuffer;
+import misc.Codes.TokenCode;
 
 /**
  *
@@ -14,6 +15,7 @@ import buffer.TextInBuffer;
 public class ErrorToken extends Token {
     public ErrorToken(){
         super();
+        code=TokenCode.ERROR;
     }
     
     @Override
@@ -21,6 +23,11 @@ public class ErrorToken extends Token {
         string="";
         string+=buffer.getCurrentChar();
         //buffer.getChar();
+    }
+    
+    @Override
+    public boolean isDelimiter(){
+        return false;
     }
     
     @Override

@@ -60,6 +60,25 @@ public class TextScanner extends Scanner{
         if(character==Common.START_OF_FILE){
             character=buffer.getChar();
         }
+        
+        do{
+            if(character == ' '){
+                //it is a blank space, get next character
+                character=buffer.getChar();
+            }
+            else if(character=='{'){
+                //Skip over the comment
+                do{
+                    
+                }while((character != '}') && (character != Common.END_OF_FILE));
+                if(character != Common.END_OF_FILE){
+                    character=buffer.getChar();
+                }else{
+                    //Error(Error.UNEXPECTED_END_OF_FILE)
+                }
+            }
+        }while(character == ' ' || character=='{');
+        
         while(character == ' '){
             character=buffer.getChar();
         }

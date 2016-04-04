@@ -46,4 +46,6 @@ public abstract class Token {
     public abstract void getToken(TextInBuffer buffer);
     
     public abstract void Print();
+    
+    public abstract boolean isDelimiter();
 }
