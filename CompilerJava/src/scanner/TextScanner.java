@@ -31,6 +31,7 @@ public class TextScanner extends Scanner{
         
         char character=buffer.getCurrentChar();
         
+        //If in case we end up ending in a end of LINE character
         if(character==Common.END_OF_LINE){
             character=buffer.getChar();
         }
