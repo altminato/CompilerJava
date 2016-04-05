@@ -1,3 +1,9 @@
-The sum of 3456 + +
-+ 7890 is 11346.1234
-qweqwe 18999	99999.
+{comenntsd
+of two lines}
+word{commentcoment}tow
+'this is a string.'
+'this is a don''t miss string'.
+sale sd .. 
+123 -456 12..34 +123.45 -0.00012 .... 0012.3e001
+123.4e27 0 000 0000.100000 123.4567E-27
++ - : = := < <= <>

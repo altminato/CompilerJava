@@ -6,7 +6,7 @@
 package tokens;
 
 import buffer.TextInBuffer;
-import misc.Codes;
+import common.Common;
 import misc.Codes.TokenCode;
 
 /**
@@ -21,7 +21,32 @@ public class StringToken extends Token{
     
     @Override
     public void getToken(TextInBuffer buffer){
+        char character;
+        String temporalString="";
+        temporalString+="'";
+        character=buffer.getChar();
         
+        while(character != Common.END_OF_FILE){
+            if(character=='\''){ //Look for another Quote.
+                //Fetched a Quote, now check for adjasent quote.
+                character=buffer.getChar();
+                if(character != '\''){
+                    break;
+                }
+            }else if(character == Common.END_OF_LINE){
+                character=' ';
+            }
+            //Append current char to string, then get the next char
+            temporalString+=character;
+            character=buffer.getChar();
+        }
+        
+        if(character== Common.END_OF_FILE){
+            //Error();
+        }
+        
+        temporalString+="'";
+        string=temporalString;
     }
     
     @Override
@@ -31,6 +56,7 @@ public class StringToken extends Token{
     
     @Override
     public void Print(){
-        
+        System.out.println("\t>> string:\t\t"+string);
+        Common.getListBuffer().putLine();
     }
 }

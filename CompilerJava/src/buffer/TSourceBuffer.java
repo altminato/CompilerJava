@@ -25,6 +25,7 @@ public class TSourceBuffer extends TextInBuffer{
             line=bufferedReader.readLine();
             if(line != null){
                 Common.increaseCurrentLineNumber();
+                line+=Common.END_OF_LINE;
             }
         }catch(IOException ex){
             System.out.println("Error getting line: "+ex.getMessage());

@@ -23,6 +23,7 @@ public class ErrorToken extends Token {
         string="";
         string+=buffer.getCurrentChar();
         //buffer.getChar();
+        //Error()
     }
     
     @Override
